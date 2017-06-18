@@ -18,7 +18,7 @@ let store = createStore(reducers);
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <div>
+            <div className="container-page">
                 <Header/>
                 <Route exact path={URLs.HOME} component={HomeScreen} />
                 <Route path={URLs.ABOUT} component={About} />
