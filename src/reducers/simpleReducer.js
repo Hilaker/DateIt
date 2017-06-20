@@ -4,7 +4,7 @@
 import {FETCH_DATA_FROM_SERVER} from '../actions/actionTypes.js'
 
 export default function simpleReducer(state, action){
-    state = {};
+    state = (state || {});
     switch (action.type){
         case FETCH_DATA_FROM_SERVER :
             return Object.assign({}, state);
