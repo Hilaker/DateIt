@@ -2,7 +2,6 @@
  * Created by hilakerer1 on 19/06/2017.
  */
 import {SET_EMAIL_TO_STORE} from './actionTypes';
-import {push} from 'react-router-redux';
 
 export function setEmailToStore(email){
     return {

@@ -4,6 +4,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
 import {signInAction} from '../actions/commonActions.js'
+import DatesContainer from './DatesContainer.js'
 import '../styles/Dateit.css'
 
 
@@ -17,27 +18,27 @@ class DateIt extends React.Component {
         this.setState({email: event.target.value});
     }
     render() {
-        if(this.props.email){
+        if(this.props.email || true){
             return (
                 <div>
-                    <div className='left-content'>has email</div>
-                    <div className='right-content'></div>
+                    <div className='left-content'>Hello gorgeous</div>
+                    <div className='right-content'><DatesContainer /></div>
                 </div>);
         }else {
             return (
                 <div>
-                        <label>
-                            please enter email:
-                            <input type="email" name="email" onChange={this.handleChange.bind(this)}/>
-                        </label>
-                        <button onClick={this.onSubmitClick.bind(this)}>Sign in </button>
+                    <label>
+                        please enter email:
+                        <input type="email" name="email" onChange={this.handleChange.bind(this)}/>
+                    </label>
+                    <button onClick={this.onSubmitClick.bind(this)}>Sign in </button>
                 </div>);
         }
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return {email: state.email}
+    return {email: state.data.email}
 }
 
 const mapDispatchToProps = (dispatch) => {
