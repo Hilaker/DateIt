@@ -21,8 +21,8 @@ class DateIt extends React.Component {
         if(this.props.email || true){
             return (
                 <div>
-                    <div className='left-content'>Hello gorgeous</div>
-                    <div className='right-content'><DatesContainer /></div>
+                    <div className='content-box left-content'><span className='title'>Hello <br></br> Gorgeous</span></div>
+                    <div className='content-box right-content'><span><div className='title'>Don't tell me when you can,<br></br>tell me when you can't!</div><DatesContainer /></span></div>
                 </div>);
         }else {
             return (

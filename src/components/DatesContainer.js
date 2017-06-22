@@ -19,7 +19,6 @@ class DatesContainer extends React.Component {
         var date = new Date(); //today
         var currentDate = date.getDate();
         var allDates = [];
-        //allDates.push({date: date.getDate, month: date.getMonth(), day: date.getDay()}); don't include today
         date.setDate(date.getDate() + 1);
         this.addEmptyDates(allDates, date.getDay());
         while(date.getDate() !== currentDate){
