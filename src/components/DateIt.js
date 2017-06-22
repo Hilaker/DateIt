@@ -12,13 +12,13 @@ class DateIt extends React.Component {
     onSubmitClick(){
         var email = this.state.email;
         this.props.signIn(email);
-        this.props.history.push("/dateit/welcome");
+        //this.props.history.push("/dateit/welcome");
     }
     handleChange(event) {
         this.setState({email: event.target.value});
     }
     render() {
-        if(this.props.email || true){
+        if(this.props.email){
             return (
                 <div>
                     <div className='content-box left-content'><span className='title'>Hello <br></br> Gorgeous</span></div>
@@ -26,12 +26,14 @@ class DateIt extends React.Component {
                 </div>);
         }else {
             return (
-                <div>
-                    <label>
-                        please enter email:
-                        <input type="email" name="email" onChange={this.handleChange.bind(this)}/>
-                    </label>
-                    <button onClick={this.onSubmitClick.bind(this)}>Sign in </button>
+                <div className='login'>
+                    <span>
+                        <label>
+                            please enter your email:
+                            <input type="email" name="email" onChange={this.handleChange.bind(this)}/>
+                        </label>
+                        <div className='login-button' onClick={this.onSubmitClick.bind(this)}>Sign in </div>
+                    </span>
                 </div>);
         }
     }

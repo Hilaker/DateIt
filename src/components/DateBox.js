@@ -5,14 +5,19 @@ import React from 'react'
 import '../styles/DateBox.css'
 
 class DateBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {selected: false};
+    }
     onBoxClick(){
-        //todo set state to selected
+        var isSelected = !this.state.selected;
+        this.setState({selected: isSelected});
     }
     render(){
-        //todo add class selected
         const currentDate = this.props.currentDate ;
+        const boxClassName = this.state.selected ? ' selected' : '';
         if (currentDate.hasOwnProperty('date')){
-            return (<div className='date-box available' onClick={this.onBoxClick}> {currentDate.date}/{currentDate.month}</div>)
+            return (<div className={'date-box available' + boxClassName } onClick={this.onBoxClick.bind(this)}> {currentDate.date}/{currentDate.month}</div>)
         }
         return <div className='empty-date-box'></div>
     }
