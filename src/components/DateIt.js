@@ -17,12 +17,21 @@ class DateIt extends React.Component {
     handleChange(event) {
         this.setState({email: event.target.value});
     }
+    onSendClick(){
+
+    }
     render() {
-        if(this.props.email){
+        if(this.props.email || true){
             return (
                 <div>
                     <div className='content-box left-content'><span className='title'>Hello <br></br> Gorgeous</span></div>
-                    <div className='content-box right-content'><span><div className='title'>Don't tell me when you can,<br></br>tell me when you can't!</div><DatesContainer /></span></div>
+                    <div className='content-box right-content'>
+                        <span>
+                            <div className='title'>Don't tell me when you can,<br></br>tell me when you can't!</div>
+                            <DatesContainer />
+                            <div className='send-button' onClick={this.onSendClick.bind(this)}>Send </div>
+                        </span>
+                    </div>
                 </div>);
         }else {
             return (

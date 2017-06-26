@@ -5,3 +5,4 @@
 export const FETCH_DATA_FROM_SERVER = 'FETCH_DATA_FROM_SERVER';
 export const SIGN_IN = 'SIGN_IN';
 export const SET_EMAIL_TO_STORE = 'SET_EMAIL_TO_STORE';
+export const SAVE_DATES = 'SAVE_DATES';
