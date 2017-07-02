@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux';
-import {signInAction} from '../actions/commonActions.js'
+import {signInAction, saveDatesAction} from '../actions/commonActions.js'
 import DatesContainer from './DatesContainer.js'
 import '../styles/Dateit.css'
 
@@ -18,7 +18,7 @@ class DateIt extends React.Component {
         this.setState({email: event.target.value});
     }
     onSendClick(){
-
+        this.props.saveDates();
     }
     render() {
         if(this.props.email || true){
@@ -57,6 +57,9 @@ const mapDispatchToProps = (dispatch) => {
         signIn: (email) => {
             dispatch(signInAction(email));
 
+        },
+        saveDates: () => {
+            dispatch(saveDatesAction());
         }
     }
 }

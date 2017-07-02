@@ -6,7 +6,7 @@ import 'whatwg-fetch';
 export function ajax(url, data){
     var requestObj = {
         method: 'POST',
-        body: data, ///parametrize?
+        body: JSON.stringify(data), ///parametrize?
         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
     }
     return fetch(url, requestObj).then(checkAjaxStatus).then(response => response.json());

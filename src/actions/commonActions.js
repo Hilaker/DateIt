@@ -17,9 +17,11 @@ export function signInAction(email){
    }
 }
 
-export function saveDates(dates) {
+export function saveDatesAction(dates) {
     return function(dispatch) {
         //todo fetch server call
-        var response = ajax('myUrl', "hello");
+        var now = new Date();
+        var response = ajax('http://127.0.0.1:8080/dateitServer', {eventId: 'event1', userId: 'user1', date: now});
+        debugger;
     }
 }
