@@ -12,6 +12,7 @@ import About from './components/About.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import DateIt from './components/DateIt.js';
+import ThankYou from './components/ThankYou.js';
 import reducers from "./reducers";
 import './styles/App.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <Route exact path={URLs.HOME} component={HomeScreen} />
                 <Route path={URLs.ABOUT} component={About} />
                 <Route path="/dateit" component={DateIt} />
+                <Route path="/thankyou" component={ThankYou} />
 
             </div>
         </Router>

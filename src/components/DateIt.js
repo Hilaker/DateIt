@@ -19,6 +19,7 @@ class DateIt extends React.Component {
     }
     onSendClick(){
         this.props.saveDates();
+        this.props.history.push("/thankyou");
     }
     render() {
         if(this.props.email || true){
@@ -28,7 +29,7 @@ class DateIt extends React.Component {
                     <div className='content-box right-content'>
                         <span>
                             <div className='title'>Don't tell me when you can,<br></br>tell me when you can't!</div>
-                            <DatesContainer />
+                            <DatesContainer dates={this.props.dates} />
                             <div className='send-button' onClick={this.onSendClick.bind(this)}>Send </div>
                         </span>
                     </div>
@@ -49,7 +50,10 @@ class DateIt extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return {email: state.data.email}
+    return {
+        email: state.data.email,
+        dates: state.data.dates
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -60,6 +64,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         saveDates: () => {
             dispatch(saveDatesAction());
+            //browserHistory.push('/thankyou');
         }
     }
 }

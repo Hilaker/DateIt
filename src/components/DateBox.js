@@ -2,6 +2,8 @@
  * Created by hilakerer1 on 21/06/2017.
  */
 import React from 'react'
+import {connect} from 'react-redux';
+import {setSelectedDate} from '../actions/commonActions.js'
 import '../styles/DateBox.css'
 
 class DateBox extends React.Component {
@@ -12,6 +14,7 @@ class DateBox extends React.Component {
     onBoxClick(){
         var isSelected = !this.state.selected;
         this.setState({selected: isSelected});
+        this.props.setDateStatus(this.props.currentDate.key, isSelected);
     }
     render(){
         const currentDate = this.props.currentDate ;
@@ -23,4 +26,13 @@ class DateBox extends React.Component {
     }
 }
 
-export default DateBox;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setDateStatus : (key, isSelected) => {
+            dispatch(setSelectedDate(key, isSelected));
+        }
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(DateBox);

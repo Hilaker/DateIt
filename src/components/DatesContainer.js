@@ -4,29 +4,16 @@
 import React from 'react'
 import DateBox from './DateBox.js'
 
+
 class DatesContainer extends React.Component {
     addEmptyDates(allDates, day){
         var i = 1;
         while( i <= day){
-            allDates.push({});
+            allDates.unshift({});
             i++;
         }
     }
-    /*
-        Get all 30 days beginning today
-     */
-    getDates(){
-        var date = new Date(); //today
-        var currentDate = date.getDate();
-        var allDates = [];
-        date.setDate(date.getDate() + 1);
-        this.addEmptyDates(allDates, date.getDay());
-        while(date.getDate() !== currentDate){
-            allDates.push({date: date.getDate(), month: date.getMonth() + 1, day: date.getDay()});
-            date.setDate(date.getDate() + 1);
-        }
-        return allDates;
-    }
+
     getDatePerRow(subList, startIndex){
         return (
             <tr key={startIndex}>
@@ -37,7 +24,9 @@ class DatesContainer extends React.Component {
         )
     }
     getDatesTableRows(){
-        const datesList = this.getDates();
+        //to array and add empty dates
+        const datesList =  Object.values(this.props.dates);
+        this.addEmptyDates(datesList, datesList[0].day);
         return datesList.map(function(date, index) {
             if(index % 7 === 0){
                 return this.getDatePerRow(datesList.slice(index, index + 7), index);
