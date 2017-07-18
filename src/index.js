@@ -14,6 +14,7 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import DateIt from './components/DateIt.js';
 import ThankYou from './components/ThankYou.js';
+import NewEvent from './components/NewEvent.js';
 import reducers from "./reducers";
 import './styles/App.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -30,6 +31,7 @@ ReactDOM.render(
                     <Route path="/dateit/:event" component={DateIt} />
                     <Route path="/dateit" component={Home} />
                     <Route path="/thankyou" component={ThankYou} />
+                    <Route path="/newEvent" component={NewEvent} />
                 </Switch>
                 <Footer />
             </div>

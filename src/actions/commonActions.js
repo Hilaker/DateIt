@@ -34,7 +34,7 @@ export function saveDatesAction(dates) {
                 selectedDates.push(date.month + "/" + date.date + "/" + date.year);
             }
         }
-        //todo fetch server call
+        //todo fetch server call + change to server url constant
         var response = ajax('http://127.0.0.1:8080/dateitServer', {eventId: 'event1', userId: 'user1', dates: selectedDates}).then(json => {
             console.log("got json response :" + json);
             //todo dispatch go to thank you page
