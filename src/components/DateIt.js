@@ -64,7 +64,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         saveDates: () => {
             dispatch(saveDatesAction());
-            //browserHistory.push('/thankyou');
         }
     }
 }

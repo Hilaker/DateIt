@@ -9,8 +9,9 @@ import '../styles/NewEvent.css'
 class NewEvent extends React.Component {
     onSaveClick(){
         var newEventName = this.state && this.state.name ?  this.state.name : "no name";
-        console.log("name: " + newEventName);
+        //Todo form input validations and handle response error
         this.props.createNewEvent({name: newEventName});
+        this.props.history.push("/thankyou");
     }
     nameChange(event){
         this.setState({name: event.target.value});
@@ -32,7 +33,7 @@ class NewEvent extends React.Component {
                     <label>
                         Your comments:
                     </label>
-                    <input type="text" name="name" onChange={this.nameChange.bind(this)}/>
+                    <input type="text" name="comments"/>
                 </div>
                 <div className='input-wrapper'>
                     <label>
@@ -46,11 +47,7 @@ class NewEvent extends React.Component {
         )
     }
 }
-//<span>
-//
-//                <div><</div>
-//
-//            </span>
+
 const mapDispatchToProps = (dispatch) => {
     return {
        createNewEvent: function(event){
