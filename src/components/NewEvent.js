@@ -9,15 +9,16 @@ import '../styles/NewEvent.css'
 class NewEvent extends React.Component {
     onSaveClick(){
         var newEventName = this.state && this.state.name ?  this.state.name : "no name";
+        var invitees = this.state && this.state.invitees ? this.state.invitees : "";
         //Todo form input validations and handle response error
-        this.props.createNewEvent({name: newEventName});
-        this.props.history.push("/thankyou");
+        this.props.createNewEvent({name: newEventName, invitees: invitees});
+        //this.props.history.push("/thankyou");
     }
     nameChange(event){
         this.setState({name: event.target.value});
     }
-    inviteesChange(){
-
+    inviteesChange(event){
+        this.setState({invitees: event.target.value});
     }
     render() {
         return (
