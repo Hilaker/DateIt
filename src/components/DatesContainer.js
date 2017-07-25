@@ -37,6 +37,7 @@ class DatesContainer extends React.Component {
     render(){
         return (
             <table>
+                <thead>
                 <tr>
                     <th>Sun</th>
                     <th>Mon</th>
@@ -46,6 +47,7 @@ class DatesContainer extends React.Component {
                     <th>Fri</th>
                     <th>Sat</th>
                 </tr>
+                </thead>
                 <tbody>
                     {this.getDatesTableRows()}
                 </tbody>

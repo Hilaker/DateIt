@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
-//import {syncHistoryWithStore} from 'react-router-redux';
 import {URLs} from './common/constants.js';
-import HomeScreen from './components/HomeScreen.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
 import Header from './components/Header.js';
@@ -17,25 +14,28 @@ import ThankYou from './components/ThankYou.js';
 import NewEvent from './components/NewEvent.js';
 import reducers from "./reducers";
 import './styles/App.css';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
+import {createBrowserHistory} from 'history';
+import {connectRouter, ConnectedRouter, routerMiddleware} from 'connected-react-router';
 
-let store = createStore(reducers, {}, compose(applyMiddleware(thunkMiddleware, routerMiddleware(Router))));
+const history = createBrowserHistory();
+let store = createStore(connectRouter(history)(reducers), {}, compose(applyMiddleware(thunkMiddleware, routerMiddleware(history))));
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <ConnectedRouter history={history}>
             <div className="container-page">
                 <Header/>
                 <Switch>
                     <Route path={URLs.ABOUT} component={About} />
-                    <Route path="/dateit/:event" component={DateIt} />
                     <Route path="/dateit" component={Home} />
                     <Route path="/thankyou" component={ThankYou} />
                     <Route path="/newEvent" component={NewEvent} />
+                    <Route path="/:event" component={DateIt} />
                 </Switch>
                 <Footer />
             </div>
-        </Router>
+        </ConnectedRouter>
     </Provider>,    document.getElementById('root'));
 
 

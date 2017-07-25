@@ -2,7 +2,6 @@
  * Created by hilakerer1 on 14/06/2017.
  */
 import React from 'react';
-import backgroundImage from '../assets/dry_flower.png';
 
 const Home = ()=> (
     <div className='home-main-wrapper'>

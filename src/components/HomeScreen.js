@@ -6,7 +6,7 @@ import backgroundImage from '../assets/dry_flower.png';
 
 const HomeScreen = ()=> (
     <div className='home-main-wrapper'>
-        <div className="home_container1"><img src={backgroundImage}/></div>
+        <div className="home_container1"><img src={backgroundImage} alt=""/></div>
         <div className="home_container2"></div>
     </div>
 );
