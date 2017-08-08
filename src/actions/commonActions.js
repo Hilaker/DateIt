@@ -1,7 +1,8 @@
 /**
  * Created by hilakerer1 on 19/06/2017.
  */
-import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE} from './actionTypes';
+import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE, REQUEST_CALL_START, REQUEST_CALL_END} from './actionTypes';
+import { push } from 'connected-react-router'
 import {ajax} from '../common/utils.js'
 
 export function setEmailToStore(email){
@@ -16,6 +17,18 @@ export function setCurrentDatesToStore(){
     }
 }
 
+export function requestCallStart(){
+    return {
+        type : REQUEST_CALL_START
+    }
+}
+
+export function requestCallEnd(){
+    return {
+        type : REQUEST_CALL_END
+    }
+}
+
 export function signInAction(email){
    return function(dispatch){
        dispatch(setEmailToStore(email));
@@ -25,6 +38,7 @@ export function signInAction(email){
 
 export function saveDatesAction(dates) {
     return function(dispatch, getState) {
+        dispatch(requestCallStart());
         var state = getState();
         var dates = state.data.dates;
         var selectedDates = [];
@@ -37,7 +51,8 @@ export function saveDatesAction(dates) {
         //todo fetch server call + change to server url constant
         var response = ajax('http://127.0.0.1:8080/dateitServer', {eventId: 'event1', userId: 'user1', dates: selectedDates}).then(json => {
             console.log("got json response :" + json);
-            //todo dispatch go to thank you page
+            dispatch(requestCallEnd());
+            dispatch(push("/thankyou"));
         });
        console.log("response: "+ response);
     }

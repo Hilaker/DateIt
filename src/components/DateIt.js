@@ -3,8 +3,9 @@
  */
 import React from 'react'
 import {connect} from 'react-redux';
-import {signInAction, saveDatesAction} from '../actions/commonActions.js'
+import {signInAction, saveDatesAction, requestCallStart} from '../actions/commonActions.js'
 import DatesContainer from './DatesContainer.js'
+import LoadingAnimation from './LoadingAnimation.js'
 import '../styles/Dateit.css'
 
 
@@ -19,7 +20,7 @@ class DateIt extends React.Component {
     }
     onSendClick(){
         this.props.saveDates();
-        this.props.history.push("/thankyou");
+       // this.props.history.push("/thankyou");
     }
     render() {
         if(this.props.email || true){
@@ -33,6 +34,7 @@ class DateIt extends React.Component {
                             <div className='send-button' onClick={this.onSendClick.bind(this)}>Send </div>
                         </span>
                     </div>
+                    <LoadingAnimation />
                 </div>);
         }else {
             return (
@@ -52,7 +54,8 @@ class DateIt extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         email: state.data.email,
-        dates: state.data.dates
+        dates: state.data.dates,
+        showLoading : state.data.showLoading
     }
 }
 

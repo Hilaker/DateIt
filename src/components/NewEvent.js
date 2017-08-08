@@ -4,6 +4,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createNewEventAction} from '../actions/EventActions.js';
+import LoadingAnimation from './LoadingAnimation.js'
 import '../styles/NewEvent.css'
 
 class NewEvent extends React.Component {
@@ -23,6 +24,7 @@ class NewEvent extends React.Component {
     render() {
         return (
         <div className='new-event'>
+            <LoadingAnimation />
             <div className='form'>
                 <div className='input-wrapper'>
                     <label>
