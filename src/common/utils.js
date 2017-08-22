@@ -7,7 +7,7 @@ export function ajax(url, data){
     var requestObj = {
         credentials: 'same-origin',
         method: 'POST',
-        body: JSON.stringify(data), ///parametrize?
+        body: JSON.stringify(data),
         headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
     }
     return fetch(url, requestObj).then(checkAjaxStatus).then(response =>

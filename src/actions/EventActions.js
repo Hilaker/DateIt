@@ -11,6 +11,7 @@ export function createNewEventAction(event){
     return function(dispatch, getState){
         //TODO inputs validations
         dispatch(requestCallStart());
+
         ajax(serverUrl+"/eventServer", event).then(json => {
             dispatch(requestCallEnd());
             //forward to choose dates page
