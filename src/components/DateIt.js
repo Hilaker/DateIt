@@ -19,7 +19,7 @@ class DateIt extends React.Component {
         this.setState({email: event.target.value});
     }
     onSendClick(){
-        this.props.saveDates();
+        this.props.saveDates(this.props.match.params.event, this.props.match.params.user);
        // this.props.history.push("/thankyou");
     }
     render() {
@@ -65,8 +65,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(signInAction(email));
 
         },
-        saveDates: () => {
-            dispatch(saveDatesAction());
+        saveDates: (eventID, userID) => {
+            dispatch(saveDatesAction(eventID, userID));
         }
     }
 }

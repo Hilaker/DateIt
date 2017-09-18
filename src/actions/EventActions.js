@@ -15,8 +15,9 @@ export function createNewEventAction(event){
         ajax(serverUrl+"/eventServer", event).then(json => {
             dispatch(requestCallEnd());
             //forward to choose dates page
-            var eventId = json.id;
-            dispatch(push("event="+eventId));
+            var eventID = json.eventID;
+            var userID = json.userID;
+            dispatch(push(eventID+"/"+userID));
         });
     }
 }

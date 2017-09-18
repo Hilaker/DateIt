@@ -15,7 +15,6 @@ class NewEvent extends React.Component {
         var inviteesArray = invitees.split(";");
         inviteesArray.push(this.state.userEmail);
         this.props.createNewEvent({userName: this.state.userName, userEmail: this.state.userEmail, eventName: newEventName, invitees: inviteesArray});
-        //this.props.history.push("/thankyou");
     }
     eventNameChange(event){
         this.setState({eventName: event.target.value});

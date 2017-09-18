@@ -31,7 +31,7 @@ ReactDOM.render(
                     <Route path="/dateit" component={Home} />
                     <Route path="/thankyou" component={ThankYou} />
                     <Route path="/newEvent" component={NewEvent} />
-                    <Route path="/:event" component={DateIt} />
+                    <Route path="/:event/:user" component={DateIt} />
                 </Switch>
                 <Footer />
             </div>

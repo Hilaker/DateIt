@@ -36,7 +36,7 @@ export function signInAction(email){
    }
 }
 
-export function saveDatesAction(dates) {
+export function saveDatesAction(eventID, userID) {
     return function(dispatch, getState) {
         dispatch(requestCallStart());
         var state = getState();
@@ -49,7 +49,7 @@ export function saveDatesAction(dates) {
             }
         }
         //todo fetch server call + change to server url constant
-        var response = ajax('http://127.0.0.1:8080/dateitServer', {eventId: 'event1', userId: 'user1', dates: selectedDates}).then(json => {
+        var response = ajax('http://127.0.0.1:8080/dateitServer', {eventId: eventID, userId: userID, dates: selectedDates.join()}).then(json => {
             console.log("got json response :" + json);
             dispatch(requestCallEnd());
             dispatch(push("/thankyou"));
