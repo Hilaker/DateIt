@@ -1,7 +1,7 @@
 /**
  * Created by hilakerer1 on 19/06/2017.
  */
-import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE, REQUEST_CALL_START, REQUEST_CALL_END} from '../actions/actionTypes.js';
+import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE, REQUEST_CALL_START, REQUEST_CALL_END, SET_URL_PARAMS_TO_STORE} from '../actions/actionTypes.js';
 import {getDates} from '../common/utils.js';
 
 export default function commonReducer(state = {dates: getDates()}, action = '') {
@@ -19,6 +19,8 @@ export default function commonReducer(state = {dates: getDates()}, action = '') 
             var newState = Object.assign({}, state);
             newState.dates[action.key].isSelected = action.isSelected;
             return newState;
+        case SET_URL_PARAMS_TO_STORE:
+            return Object.assign({}, state, {eventId: action.eventId, userId: action.userId});
         default :
             return state;
     }

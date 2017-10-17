@@ -1,7 +1,7 @@
 /**
  * Created by hilakerer1 on 19/06/2017.
  */
-import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE, REQUEST_CALL_START, REQUEST_CALL_END} from './actionTypes';
+import {SET_EMAIL_TO_STORE, SET_DATES_TO_STORE, SET_SELECTED_DATE, REQUEST_CALL_START, REQUEST_CALL_END, SET_URL_PARAMS_TO_STORE} from './actionTypes';
 import { push } from 'connected-react-router'
 import {ajax} from '../common/utils.js'
 
@@ -63,5 +63,13 @@ export function setSelectedDate(key, isSelected) {
         type: SET_SELECTED_DATE,
         key,
         isSelected
+    }
+}
+
+export function setUrlParamsToStoreAction(...params){
+    return {
+        type: SET_URL_PARAMS_TO_STORE,
+        eventId: params[0],
+        userId: params[1]
     }
 }

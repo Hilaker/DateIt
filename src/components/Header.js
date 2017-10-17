@@ -12,13 +12,14 @@ class Header extends React.Component {
     onAboutClick(){
         this.props.history.push("/about");
     }
+    signIn(){
+
+    }
     render() {
         return (
             <div className='top-menu' >
-                <div className='header-item logo'>Logo</div>
-                <div className='header-item new-menu' onClick={this.onNewClick.bind(this)}>+ New Event</div>
-                <div className='header-item about-menu' onClick={this.onAboutClick.bind(this)}>about</div>
-                <div className='header-item contact-us-menu'>contact us</div>
+                <div className='header-item logo'>DateIT</div>
+                <div className='header-item contact-us-menu' onClick={this.signIn.bind(this)}>Sign in</div>
             </div>)
     }
 };

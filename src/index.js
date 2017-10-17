@@ -12,6 +12,7 @@ import Footer from './components/Footer.js';
 import DateIt from './components/DateIt.js';
 import ThankYou from './components/ThankYou.js';
 import NewEvent from './components/NewEvent.js';
+import Login from './components/Login.js'
 import reducers from "./reducers";
 import './styles/App.css';
 //import registerServiceWorker from './registerServiceWorker';
@@ -28,10 +29,11 @@ ReactDOM.render(
                 <Header/>
                 <Switch>
                     <Route path={URLs.ABOUT} component={About} />
-                    <Route path="/dateit" component={Home} />
+                    <Route path="/login" component={Login} />
                     <Route path="/thankyou" component={ThankYou} />
                     <Route path="/newEvent" component={NewEvent} />
-                    <Route path="/:event/:user" component={DateIt} />
+                    <Route path="/:event/:user" component={Home} />
+                    <Route path="/" component={Home} />
                 </Switch>
                 <Footer />
             </div>
