@@ -1,12 +1,18 @@
 import React from 'react';
 
-class Login extends React.Component {
+class SignUp extends React.Component {
     render(){
         return (
             <div>
                 <div className='home-background'></div>
                 <div className='form'>
-                    <div className='form-title'>Sign In</div>
+                    <div className='form-title'>Create your DateIt account.</div>
+                    <div className='input-wrapper'>
+                        <label>
+                            Full Name:
+                        </label>
+                        <input type="text" name="userName"/>
+                    </div>
                     <div className='input-wrapper'>
                         <label>
                             Email:
@@ -19,11 +25,11 @@ class Login extends React.Component {
                         </label>
                         <input type="text" name="password"/>
                     </div>
-                    <span className='action-button'>Sign In</span>
+                    <span className='action-button'>Create account</span>
                 </div>
             </div>
         )
     }
 }
 
-export default Login;
+export default SignUp;

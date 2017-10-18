@@ -7,12 +7,12 @@ import thunkMiddleware from 'redux-thunk';
 import {URLs} from './common/constants.js';
 import Home from './components/Home.js';
 import About from './components/About.js';
-import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import DateIt from './components/DateIt.js';
 import ThankYou from './components/ThankYou.js';
 import NewEvent from './components/NewEvent.js';
 import Login from './components/Login.js'
+import SignUp from './components/SignUp.js'
 import reducers from "./reducers";
 import './styles/App.css';
 //import registerServiceWorker from './registerServiceWorker';
@@ -26,10 +26,8 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div className="container-page">
-                <Header/>
                 <Switch>
                     <Route path={URLs.ABOUT} component={About} />
-                    <Route path="/login" component={Login} />
                     <Route path="/thankyou" component={ThankYou} />
                     <Route path="/newEvent" component={NewEvent} />
                     <Route path="/:event/:user" component={Home} />

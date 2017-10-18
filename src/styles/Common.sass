@@ -1,0 +1,46 @@
+@import "Globals.sass"
+
+.form
+    margin: 0 auto
+    width: 33%
+    min-width: 285px
+    border-radius: 4px
+    background-color: rgba(56,56,56, 0.8)
+    color: white
+    .form-title
+        padding: 20px 30px
+        font-size: 20px
+        text-align: left
+    label
+        display: inline-block
+        width: 120px
+        text-align: left
+        line-height: 33px
+    .input-wrapper
+        display: flex
+        padding: 10px 30px
+        box-sizing: border-box
+        input
+            flex-grow: 1
+            padding: 8px
+            height: 33px
+            box-sizing: border-box
+            border: none
+            border-radius: 2px
+    .send-button-wrapper
+        padding: 10px 30px
+    .send-button
+        box-sizing: border-box
+        background-color: $yellow
+        font-size: $font-medium
+
+.action-button
+    display: inline-block
+    margin: 20px 0
+    padding: 8px 16px
+    border-radius: 4px
+    background-color: darkred
+    font-size: 20px
+    cursor: pointer
+    &:hover
+        background-color: #600101

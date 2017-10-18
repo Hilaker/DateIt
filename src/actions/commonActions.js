@@ -65,11 +65,3 @@ export function setSelectedDate(key, isSelected) {
         isSelected
     }
 }
-
-export function setUrlParamsToStoreAction(...params){
-    return {
-        type: SET_URL_PARAMS_TO_STORE,
-        eventId: params[0],
-        userId: params[1]
-    }
-}

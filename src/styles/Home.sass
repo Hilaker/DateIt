@@ -1,3 +1,5 @@
+@import "Globals.sass"
+
 .home-container
     .box-layout
         padding-left: 20px
@@ -10,14 +12,14 @@
             margin-top: 20px
             font-size: 25px
 
-    .sign-up-button
-        padding: 8px 16px
-        border-radius: 4px
-        background-color: darkred
-        font-size: 20px
-        cursor: pointer
-        &:hover
-            background-color: #600101
+.logo
+    padding-left: 20px
+    text-align: left
+    font-size: 50px
+    font-family: 'Pacifico'
+    color: $dates-theme-color
+    &:hover
+        color: $dates-dark-color
 
 .home-background
     position: absolute
@@ -26,4 +28,4 @@
     height: 100vh
     width: 100%
     z-index: -3
-    background-image: url("../../src/assets/beerwithfriends.png")
+    background: url("../../src/assets/beerwithfriends.png") no-repeat center

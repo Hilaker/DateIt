@@ -19,8 +19,6 @@ export default function commonReducer(state = {dates: getDates()}, action = '') 
             var newState = Object.assign({}, state);
             newState.dates[action.key].isSelected = action.isSelected;
             return newState;
-        case SET_URL_PARAMS_TO_STORE:
-            return Object.assign({}, state, {eventId: action.eventId, userId: action.userId});
         default :
             return state;
     }
