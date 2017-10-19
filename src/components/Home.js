@@ -5,6 +5,8 @@ import {PageContent} from '../common/constants.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
 import NewEvent from './NewEvent.js';
+import WelcomeMessage from './WelcomeMessage.js';
+import Event from './Event.js';
 import '../styles/Home.css';
 import '../styles/Common.css';
 
@@ -31,33 +33,44 @@ class Home extends React.Component {
     goToNewEvent(){
         this.setState({pageContent: PageContent.NEW_EVENT});
     }
+    goToEvent(eventID){
+        this.setState({
+            pageContent: PageContent.EVENT,
+            currentEvent: eventID
+        })
+    }
+    getPageContent(){
+        const isUserLoggedIn = true; //TODO
+        if(isUserLoggedIn){
+            if(this.state.pageContent == PageContent.NEW_EVENT){
+                return  (<NewEvent eventId={this.props.match.params.event} user={this.props.match.params.user}/>);
+            }
+            if(this.state.pageContent == PageContent.EVENT){
+                return <Event />
+            }
+            //display upcoming events
+            var events = [{name: 'coffee with friends'},{name: "celebrating Amy's B-Day"}];
+            return (
+                <div className='events-box'>
+                    <div className='action-button' onClick={this.goToNewEvent}>+ create New Event</div>Your upcoming events
+                    {events.map((event, index) => <div className='event-entry' onClick={this.goToEvent.bind(this)} key={index}>{event.name}</div>)}<div></div>
+                </div>
+            );
+        }
+        if(this.state.pageContent == PageContent.LOGIN){
+            return (<Login />);
+        }
+        if(this.state.pageContent == PageContent.SIGNUP){
+            return <SignUp />
+        }
+        return <WelcomeMessage eventId={this.props.match.params.event} onSignupClick={this.onSignupClick} onSignInClick={this.onSignInClick}/>;
+    }
     render(){
-        const eventId = this.props.match.params.event;
-        const isUserLoggedIn = false; //TODO
         return (
             <div className='home-container'>
                 <div className='logo' onClick={this.onLogoClick}>DateIT</div>
                 <div className='home-background'></div>
-                {isUserLoggedIn && this.state.pageContent == PageContent.NEW_EVENT ? <NewEvent /> :
-                    isUserLoggedIn ? <div className='action-button' onClick={this.goToNewEvent}>+ create New Event</div> :
-                    this.state.pageContent == PageContent.LOGIN ? <Login /> :
-                    this.state.pageContent == PageContent.SIGNUP ? <SignUp /> :
-                        <div className='box-layout'>
-                            {eventId ?
-                                <div>Congratulations! <br/> <span className='sub-title'>You were invited by your friend </span></div>
-                                :
-                                <div>Get together with your friends.</div>
-                            }
-                            {eventId ?
-                                <div className='sign-up-box'>
-                                    <span className='action-button' onClick={this.onSignupClick}>Sign up</span> or <span className='action-button' onClick={this.onSignInClick}>Sign in</span>
-                                </div>
-                                :
-                                <span className='action-button' onClick={this.onSignupClick}>Sign up and create an event</span>
-                            }
-
-                        </div>
-                }
+                {this.getPageContent()}
             </div>
         )
     }

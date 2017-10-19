@@ -13,5 +13,6 @@ export const PageContent = {
     'HOME': 'HOME',
     'SIGNUP' : 'SIGNUP',
     'LOGIN' :'LOGIN',
-    'NEW_EVENT':'NEW-EVENT'
+    'NEW_EVENT':'NEW-EVENT',
+    'EVENT':'EVENT'
 }

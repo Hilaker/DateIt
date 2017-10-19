@@ -9,7 +9,7 @@ import {serverUrl} from '../common/constants.js';
 
 export function createNewEventAction(event){
     return function(dispatch, getState){
-        //TODO inputs validations
+
         dispatch(requestCallStart());
 
         ajax(serverUrl+"/eventServer", event).then(json => {
